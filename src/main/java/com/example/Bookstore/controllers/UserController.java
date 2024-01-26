@@ -36,6 +36,7 @@ public class UserController {
     @GetMapping("/getAll")
     public ResponseEntity<List<UserEntity>> getAll(){
         List<UserEntity> userModel = userRepository.findAll();
+        
         return ResponseEntity.status(HttpStatus.OK).body(userModel);
     }
      
