@@ -1,11 +1,13 @@
 package com.example.Bookstore.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,10 +41,16 @@ public class BookController {
 
         return ResponseEntity.status(HttpStatus.OK).body(bookList);
     }
-        @GetMapping("/get/{title}")
+    @GetMapping("/get/{title}")
     public ResponseEntity<List<BookEntity>> getByName(@PathVariable(value="title" ) String title) {
         List<BookEntity> bookList = bookRepository.findByTitle(title);
 
         return ResponseEntity.status(HttpStatus.OK).body(bookList);
+    }
+    @DeleteMapping("/delete/{title}")
+    public ResponseEntity<Object> delete(@PathVariable(value = "title") String title){
+        List<BookEntity> book = bookRepository.findByTitle(title);
+
+        return ResponseEntity.status(HttpStatus.OK).body("Produto foi deletado.");
     }
 }
