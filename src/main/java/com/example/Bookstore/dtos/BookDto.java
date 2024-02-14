@@ -1,14 +1,15 @@
 package com.example.Bookstore.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+
 public record BookDto(
     
-    Long id,
 
-    String autor,
+  @NotBlank  String autor,
 
-    String title,
+  @NotBlank  String title,
 
-    String theme
+  @NotBlank String theme
 ) {
 
 }

@@ -8,19 +8,20 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity(name = "books")
-@Table(name = "books")
+@Entity(name = "stock")
+@Table(name = "stock")
 @Setter
 @Getter
-public class BookEntity {
-
+public class StockEntity {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String autor;
+    private String name;
 
-    private String title;
+    private Long book_id;
 
-    private String theme;
+    private int price;
+
 }

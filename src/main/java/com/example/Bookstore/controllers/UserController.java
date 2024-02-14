@@ -30,6 +30,7 @@ public class UserController {
 
         var userModel = new UserEntity();
         BeanUtils.copyProperties(userDto, userModel);
+        
         return ResponseEntity.status(HttpStatus.CREATED).body(userRepository.save(userModel));
     }
 

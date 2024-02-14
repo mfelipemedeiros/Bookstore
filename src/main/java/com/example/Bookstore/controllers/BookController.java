@@ -27,11 +27,14 @@ public class BookController {
 
     @Autowired
     BookRepository bookRepository;
+
     @PostMapping("/create")
     public ResponseEntity<BookEntity> createBook(@RequestBody @Valid BookDto bookDto){
+
         var bookModel = new BookEntity();
         BeanUtils.copyProperties(bookDto, bookModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(bookModel);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(bookRepository.save(bookModel));
     }
 
     @GetMapping("/getAll")
