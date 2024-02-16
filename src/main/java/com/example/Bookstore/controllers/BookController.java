@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Bookstore.dtos.BookDto;
 import com.example.Bookstore.entities.BookEntity;
 import com.example.Bookstore.repositories.BookRepository;
+import com.example.Bookstore.repositories.StockRepository;
 
 import jakarta.validation.Valid;
 
@@ -28,9 +29,12 @@ public class BookController {
     @Autowired
     BookRepository bookRepository;
 
+    @Autowired
+    StockRepository stockRepository;
+
     @PostMapping("/create")
     public ResponseEntity<BookEntity> createBook(@RequestBody @Valid BookDto bookDto){
-
+        
         var bookModel = new BookEntity();
         BeanUtils.copyProperties(bookDto, bookModel);
 

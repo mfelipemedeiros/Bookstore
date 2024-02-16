@@ -9,7 +9,8 @@ public record BookDto(
 
   @NotBlank  String title,
 
-  @NotBlank String theme
+  @NotBlank String theme,
+            int number
 ) {
 
 }
