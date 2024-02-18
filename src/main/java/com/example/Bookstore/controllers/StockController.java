@@ -16,6 +16,9 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 @RestController
@@ -30,6 +33,12 @@ public class StockController {
         var stockModel = new StockEntity();
         BeanUtils.copyProperties(stockDto, stockModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(stockRepository.save(stockModel));
+    }
+    @PutMapping("path/{id}")
+    public String putMethodName(@PathVariable String id, @RequestBody String entity) {
+        //TODO: process PUT request
+        
+        return entity;
     }
         
 }

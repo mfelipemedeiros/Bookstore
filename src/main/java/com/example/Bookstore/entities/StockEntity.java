@@ -18,9 +18,10 @@ public class StockEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-
+    
     private Long book_id;
+
+    private int quantity;
 
     private int price;
 

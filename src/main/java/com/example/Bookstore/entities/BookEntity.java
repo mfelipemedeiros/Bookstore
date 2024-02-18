@@ -23,4 +23,6 @@ public class BookEntity {
     private String title;
 
     private String theme;
+
+    private Long stock_id;
 }
